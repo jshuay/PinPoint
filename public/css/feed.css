@@ -1,0 +1,50 @@
+.button-search{
+	border-radius:0;
+	width: 100px;
+	height: 34px;
+}
+.button-add{
+	border-radius:0;
+	width: 100px;
+	height: 34px;
+}
+ul.left-buttons {
+    margin: auto;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	
+}
+
+ul.left-buttons li a {
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    font-size: 20px;
+    line-height: 40px;
+    outline: 0;
+    color: #fff;
+    background-color: #222;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+	text-align: center;
+	text-decoration: none;
+	
+}
+
+ul.left-buttons li a:hover,
+ul.left-buttons li a:focus,
+ul.left-buttons li a:active {
+    background-color: #fed136;
+}
+
+p.horizontal {
+    display:inline;
+    font-size: 12px;
+}
+
+#map {
+    width: 220px;
+    height: 150px;
+  }

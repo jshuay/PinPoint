@@ -1,0 +1,11 @@
+{
+    "name": "PinPoint",
+    "version": "0.0.1",
+    "main": "app.js",
+    "dependencies": {
+        "express": "~4.0.0",
+        "ejs": "~0.8.5",
+        "node-parse-api": "~0.3.8",
+        "body-parser": "~1.13.3"
+    }
+}

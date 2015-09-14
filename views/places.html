@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+      #container{
+      margin-left: auto;
+      margin-right: auto;
+      position:relative;
+      }
+      #div1{
+      position:absolute;
+      z-index: 1;
+      }
+      .overlay{
+      display:flex;
+      position:absolute;
+<!--      justify-content: center;
+      margin: 0 auto;
+      width: 100%; -->
+      z-index:2;
+      }
+    </style>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Pinpoint | Places</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+    
+        <!-- Custom CSS -->
+    <link href="css/agency.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
+
+    <!-- FFED CSS -->
+    <link href="css/feed.css" rel="stylesheet">	
+	
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.0.min.js"></script>
+<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.0.min.js"></script>
+    <script type="text/javascript" src="sign_up.js"></script>
+
+    <!-- script for toggling -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+      $("button").click(function(){
+      $("#div1").fadeToggle("slow");
+      $("#div2").fadeToggle("slow");
+      });
+      });
+    </script>
+
+    <!-- script for toggling -->
+</head>
+
+<body class="body-style">
+
+    <!--<div id="wrapper">-->
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+
+             <a class="navbar-brand" href="index.html"><img src="img/pinpoint-gray.png" class="logo"></a>
+            
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav navright">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-navicon"></i></a>
+                    <ul class="pull-right dropdown-menu">
+                        <li>
+                            <a href="pins.html"><i class="fa fa-fw fa-map-pin"></i> &nbsp;My Pins</a>
+                        </li>
+                        <li>
+                            <a href="friends.html"><i class="fa fa-fw fa-users"></i> &nbsp;Friends</a>
+                        </li>
+                        <li>
+                            <a href="places.html"><i class="fa fa-fw fa-map"></i> &nbsp;Locations</a>
+                        </li>
+						<li>
+                            <a href="settings.html"><i class="fa fa-fw fa-gear"></i> &nbsp;Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="logout.html"><i class="fa fa-fw fa-power-off"></i> &nbsp;Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <!-- /.navbar-collapse -->
+        </nav>
+        
+
+        <div class="container container-rel" style="align:center">
+            <div class="row">
+				 <div class="col-md-4">
+                    <ul class="list-inline center-buttons center-buttons-spacing">
+                        <li><p><a href="#"><br><i class="fa fa-map-marker fa-2x"></i><br>Places</a></p>
+                        </li>
+                    </ul>
+                 </div>
+				 <div class="col-md-4" style="padding: 10px 0 20px">
+					<div class="btn-group">
+						<button type="button" data-switch-toggle="state" class="btn btn-default btn-locations">Map</button>
+						<button type="button" data-switch-toggle="state" class="btn btn-default btn-locations">Feed</button>
+					</div>
+				</div>
+				 <div class="col-md-4">
+				   <!-- map jquery and css code -->
+
+				   <!-- use a container for both divs to force overlap -->
+				   <!-- http://stackoverflow.com/questions/19429859/fadetoggle-seems-to-make-the-hidden-div-jump-up -->
+				   <!-- container div must have dimensions to force overlap and centering to work!! -->
+				   <div id="container" style="width:250px;height:250px">
+				     <div id="div1" style="width:250px;height:250px;">
+						<div class="container">
+						<div class="col-md-4 col-sm-6">
+					<div class="well"> 
+					<form role="form" class="form-horizontal"> 
+						<p class="horizontal">Hodson Hall, </p>
+						<p class="horizontal">1 pin</p>
+					</form>
+					</div>
+					<div class="well"> 
+					<form role="form" class="form-horizontal"> 
+						<p class="horizontal">Hackerman Hall, </p>
+						<p class="horizontal">3 pins</p>
+					</form>
+					</div>
+					<div class="well"> 
+					<form role="form" class="form-horizontal"> 
+								<p class="horizontal">Malone Hall, </p>
+								<p class="horizontal">1 pin</p>
+									</form>
+						</div>
+						</div>
+					</div>
+				     </div>
+				     <div id="div2" class="overlay" style="display:none;width:250px;height:250px;">
+				       <iframe src="https://www.google.com/maps/d/embed?mid=zXf1V7DtEaTY.kXQZO5a-5gU8&z=-13" width="100%" height="100%"></iframe>
+				     </div>
+				   </div>
+									
+						
+						
+				   <!-- end map jquery and css code -->
+				</div>
+            </div>
+        </div>
+
+         <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright" style="color:white">&copy; Pinpoint 2015</span>
+                </div>
+               
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="privacy.html">Privacy Policy</a>
+                        </li>
+                        <li><a href="tos.html">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/agency.js"></script>
+
+</body>
+
+</html>

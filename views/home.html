@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="js/geo_loc/jquery.js"></script>
+<script src="js/geo_loc/modernizr.js"></script>
+<script src="js/geo_loc/geoPosition.js"></script>
+<script src="js/geo_loc/dih5.js"></script>
+<script src="js/geo_loc/js"></script>
+<script src="js/geo_loc/main.js"></script>
+<!-- may need main.js -->
+
+<script>
+    function lookup_location() {
+        geoPosition.getCurrentPosition(gpsPrint, gpsErr);
+    }
+    function gpsPrint(loc) {
+        var request = new XMLHttpRequest();
+        var lat = loc.coords.latitude;
+        var lon = loc.coords.longitude;
+        var cookie = document.cookie;
+        var name = cookie.substring(cookie.indexOf("name=") + 5)
+        var params = "lat=" + lat + "&long=" + lon + "&name=" +name;
+        request.open("POST", "/toParse", true);
+        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        request.send(params);
+    }
+    function gpsErr() {
+        document.getElementById("loc").innerHTML = "error";
+    }
+    $(function() {
+        if (geoPosition.init()) {
+            $("#live-geolocation").html(supports(true, "geolocation") + ' <a href="#" onclick="lookup_location();return false">Click to look up your location</a>.');
+        } else {
+            $("#live-geolocation").html(supports(false, "geolocation"));
+        }
+    });
+</script>
+</head>
+<body>
+<p1>HOME PAGE 2</p1>
+<br>
+<br>
+<button type="button" onClick="lookup_location();return false">Find Me</button>
+<br>
+<br>
+<p id="lat">test</p>
+<p id="long">test</p>
+<br>
+<button onclick="toParse()">Send to Parse</button>
+<script>
+    function toParse() {
+        var request = new XMLHttpRequest();
+        var lat = document.getElementById("lat");
+        var lon = document.getElementById("long");
+        var params = "lat=" + lat.innerHTML + "&long=" + lon.innerHTML;
+        request.open("POST", "/toParse", true);
+        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        request.send(params);
+    }
+</script>
+</body>
+</html>
