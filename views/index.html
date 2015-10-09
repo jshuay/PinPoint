@@ -61,14 +61,14 @@
         request.open("POST", "/toParse", true);
         request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         request.send(params);
-        window.location = "http://fb5fc12b.ngrok.io/mypins";
+        window.location = "http://127.0.0.1:3000/mypins";
     }
     function gpsErr() {
         document.getElementById("loc").innerHTML = "error";
     }
 
     function toExplore() {
-        window.location = "http://fb5fc12b.ngrok.io/explore";
+        window.location = "http://127.0.0.1:3000/explore";
     }
 
     $(function() {
